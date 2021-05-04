@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  <br>
+  <input type="text" id="number" ><br>
+  <input type="text" id="multiply"><br>
+
+  <input type='button' value='단 계산' id="result">
+
+
+
+  <br>
+  <span id="resultArea"></span>
+</body>
+
+<script>
+  // // $("#result").click(function() {
+
+  //
+  //   $.ajax({
+  //     type: "POST",
+  //     url: `/guguNumber`,
+  //     data: {
+  //   number : number,
+  //   multiply: multiply
+  // },
+  // success: function(res) {
+  //       console.log(res);
+  //
+  //     }
+  //   });
+  // });
+  //
+  // for(int i = 0; i < multiply + 1; i++) {
+  //   "" + number * i = number*i
+  // }console.log();
+  //
+
+
+
+  $("#result").click(function() {
+
+
+
+
+
+          let number = $("#number").val();
+          let multiply = $("#multiply").val();
+          console.log(number);
+          console.log(multiply);
+
+
+                  $("#resultArea").html("");
+                  for (let i = 1; i <= multiply; i++) {
+                    let results = number* i;
+                    $("#resultArea").append(`${number} * ${i} = ${results} <br>`)
+                    $("#resultArea").append(number + ' * ' + i +  '=' + results + '<br>')
+                    console.log(results);
+
+
+
+                }
+                  });
+              // }
+
+          // });
+//
+//
+//
+// let number = $("#number").val();
+// let multiply = $("#multiply").val();
+//
+// console.log(number);
+// console.log(multiply);
+//
+//   $("#resultArea").html("");
+//   for(let i = 0; i <= multiply i++) {
+//     let results = number * i;
+//     $("#resultArea").append(`${number} * ${i} = ${results} <br> `)
+
+
+
+
+  </script>
+
+
+  </html>

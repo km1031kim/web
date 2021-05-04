@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+
+</body>
+
+<script>
+  // let threesixnine = []
+  // for (let i = 0; i < 501; i++) {
+  //   threesixnine[i] = i + "";
+  // } let JJack = ""
+  // for (let i = 0; i < threesixnine.length; i++) {
+  //   let JJack = "";
+  //   for (let j = 0; j < threesixnine[i].length; j++) {
+  //     if (threesixnine[i][j] == "3" || threesixnine[i][j] == "6" || threesixnine[i][j] == "9") {
+  //       JJack += "짝";
+  //     }
+  //   } threesixnine[i] = JJack;
+  //
+  // }
+  // console.log(threesixnine);
+
+  // for (let k = 1000; k < 2000; k++) {
+  //   let number = k;
+  //   let numberString = number + "";
+  //
+  //   let jjackcount = 0;
+  //   for (let i = 0; i < numberString.length; i++) {
+  //     if (numberString[i] % 3 == 0 && numberString[i] != 0) {
+  //       jjackcount++
+  //     }
+  //   }
+  //   let jjackString = "";
+  //   if (jjackcount == 0) {
+  //     console.log(numberString);
+  //   } else {
+  //     for (let j = 0; j < jjackcount; j++) {
+  //       jjackString += "짝";
+  //     }
+  //     console.log(jjackString);
+  //   }
+  // }
+
+
+
+
+  // 3, 6, 9 의 개수를 세는 로직을 먼저 구현하자
+
+  // number = 12345;
+  // numberString = 12345 + "";
+  // for (let i = 1; i < numberString.length; i++) {
+  //   if (numberString[i] % 3 == 0 && numberString[i] != 0) {
+  //     console.log("짝");
+  //   }
+  //   console.log(numberString[i]);
+  // }
+
+
+  // 이제 짝을 더해서  출력한 변수, 숫자를 출력할 변수를 만들고 반복문을 돌리자.
+
+  //
+  // for (let j = 0; j < 500; j++) {
+  //   let number = j;
+  //   numberString = j + "";
+  //   let jjackcount = 0;
+  //   for (let i = 0; i < numberString.length; i++) {
+  //     if (numberString[i] % 3 == 0 && numberString[i] != 0) {
+  //       jjackcount++;
+  //     }
+  //   }
+  //   jjackString = "";
+  //   if (jjackcount == 0) {
+  //     console.log(numberString);
+  //   } else {
+  //     for (let k = 0; k < jjackcount; k++) {
+  //       jjackString += "쨖";
+  //     }
+  //     console.log(jjackString);
+  //   }
+  // }
+  //
+  //
+  //
+  //
+
+
+
+
+
+  for (let i = 0; i < 500; i++) {
+    let number = i;
+    let numberString = number + "";
+    let cnt = 0;;
+
+    for (let j = 0; j < numberString.length; j++) {
+      if (numberString[j] % 3 == 0 && numberString[j] != 0) {
+        cnt++;
+      }
+    }
+    let jjackString = "";
+    if (cnt == 0) {
+      console.log(numberString);
+    } else {
+      for (let j = 0; j < cnt; j++) {
+        jjackString += "짝"
+
+      }
+      console.log(jjackString);
+    }
+
+  }
+
+
+
+
+
+
+  //
+  //
+  // for(let i = 0; i < 500; i++){
+  //   let number = i;
+  //   let numberString = number + "";
+  //
+  //   let count = 0;
+  //   for(let j = 0; j < numberString.length; j++){
+  //     if(numberString[j] % 3 ==0 && numberString[j] != 0){
+  //       count++;
+  //     }
+  //   }
+  //     let jjackString = "";
+  //     if(count == 0) {
+  //       console.log(numberString);
+  //     } else {
+  //       for(let k = 0; k < count; k++){
+  //         jjackString += "쨕";
+  //       }console.log(jjackString);
+  //     }
+  //
+  //
+  //   }
+  //
+</script>
+
+</html>

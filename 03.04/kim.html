@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+
+
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+<body>
+
+  id: <input type="text" id="loginId"><br>
+  Password : <input type="text" id="password"><br>
+  <input type='button' value='버튼1' id="button1">
+
+  <script>
+    $("#button1").click(   function(){
+      console.log($("#loginId").val(), $("#password").val());
+      $("#loginId").val("");
+      $("#password").val("");
+
+    });
+  </script>
+</body>
+
+</html>

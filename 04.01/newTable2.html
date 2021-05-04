@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <body>
+  뉴스<br>
+
+  제목  : <input type="text" id="TitleInput">
+  내용  : <input type="text" id="ContentInput">
+
+  <input type='button' value='정보 입력하' id="button1">
+<br>
+      <span id="resultArea"></span>
+ </body>
+      <script type = "text/javascript">
+          $("#button1").click(function() {
+            console.log($("#TitleInput").val(), $("#ContentInput").val())
+            $.ajax({
+              type: "POST",
+              url: `/newtableContent`,
+              data: {
+
+                header : $("#TitleInput").val(),
+                story: $("#ContentInput").val(),
+
+
+                },
+              success: function(results) {
+                console.log(results);
+                if(results=='not ok') {
+                  alert("입력 실패");
+                }
+                else if(results=='ok') {
+                  alert("입력 성공")
+                }
+
+              }
+            });
+          });
+//브라우저 콘솔
+            </script>
+
+
+</html>

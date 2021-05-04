@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+</head>
+
+<body>
+
+
+  1번 <br>
+  가중치 :
+  0<input type="radio" name="number1" checked>
+  1<input type="radio" name="number1">
+  2<input type="radio" name="number1">
+  3<input type="radio" name="number1">
+  4<input type="radio" name="number1"> <br>
+  <input type="text" id="numberOne"><br>
+  <br>
+  <br>
+  2번 <br>
+  가중치 :
+  0<input type="radio" name="number2" checked>
+  1<input type="radio" name="number2">
+  2<input type="radio" name="number2">
+  3<input type="radio" name="number2">
+  4<input type="radio" name="number2"><br>
+
+  <input type="text" id="numberTwo"><br>
+  <br>
+  <br>
+  3번 <br>
+  가중치 :
+  0<input type="radio" name="number3" checked>
+  1<input type="radio" name="number3">
+  2<input type="radio" name="number3">
+  3<input type="radio" name="number3">
+  4<input type="radio" name="number3"><br>
+  <input type="text" id="numberThree"><br>
+
+
+
+
+  <span id="resultArea"></span><br>
+  <!-- <script>
+    for (int i = 0; i < 3; i++) {
+    for(int j = 0; j < 5; j++){
+
+  }
+      $("#resultArea").append(`${i+1} <input type="radio" name="radioName"><br>`);
+    }
+  </script> -->
+
+
+<input type="button" id="calc" value="계산">
+
+</body>
+<script>
+  $("#calc").click(function() {
+    $("#resultArea").html("");
+    let numberOne = Number($("#numberOne").val());
+    let numberTwo = Number($("#numberTwo").val());
+    let numberThree = Number($("#numberThree").val());
+    let resultOne = 0;
+    let resultTwo = 0;
+    let resultThree = 0;
+
+    for (let i = 0; i < $('input[name="number1"]').length; i++) {
+      if ($('input[name="number1"]')[i].checked) {
+        $("#resultArea").append(`${i}X${numberOne} + `)
+        resultOne = numberOne * i;
+      }
+      if ($('input[name="number2"]')[i].checked) {
+        $("#resultArea").append(`${i}X${numberTwo} + `)
+        resultTwo = numberTwo * i;
+      }
+      if ($('input[name="number3"]')[i].checked) {
+        $("#resultArea").append(`${i}X${numberThree} = `)
+        resultThree = numberThree * i;
+      }
+    }
+    let total = resultOne + resultTwo + resultThree;
+
+    $("#resultArea").append(total)
+
+  });
+</script>
+
+</html>

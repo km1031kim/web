@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+
+  1<input type="radio" name="radioName1" checked>
+  2<input type="radio" name="radioName1">
+  3<input type="radio" name="radioName1">
+  4<input type="radio" name="radioName1">
+  5<input type="radio" name="radioName1">
+  6<input type="radio" name="radioName1">
+  7<input type="radio" name="radioName1">
+  8<input type="radio" name="radioName1">
+  9<input type="radio" name="radioName1">
+  10<input type="radio" name="radioName1"><br>
+
+  1<input type="radio" name="radioName2" checked>
+  2<input type="radio" name="radioName2">
+  3<input type="radio" name="radioName2">
+  4<input type="radio" name="radioName2">
+  5<input type="radio" name="radioName2">
+  6<input type="radio" name="radioName2">
+  7<input type="radio" name="radioName2">
+  8<input type="radio" name="radioName2">
+  9<input type="radio" name="radioName2">
+  10<input type="radio" name="radioName2"><br>
+
+  1<input type="radio" name="radioName3" checked>
+  2<input type="radio" name="radioName3">
+  3<input type="radio" name="radioName3">
+  4<input type="radio" name="radioName3">
+  5<input type="radio" name="radioName3">
+  6<input type="radio" name="radioName3">
+  7<input type="radio" name="radioName3">
+  8<input type="radio" name="radioName3">
+  9<input type="radio" name="radioName3">
+  10<input type="radio" name="radioName3">
+  <br>
+  <input type='button' value='계산' id="calculate">
+</body>
+
+<script>
+  $("#calculate").click(function() {
+
+    let Number1 = 0;
+    let Number2 = 0;
+    let Number3 = 0;
+
+
+    // 체크된 것의 인덱스 i 체크.
+    for (let i = 0; i < $('input[name="radioName1"]').length; i++) {
+      if ($('input[name="radioName1"]')[i].checked) {
+        Number1 = i + 1;
+      }
+      if ($('input[name="radioName2"]')[i].checked) {
+        Number2 = i + 1;
+      }
+      if ($('input[name="radioName3"]')[i].checked) {
+        Number3 = i + 1;
+
+
+      }
+    }
+    // console.log(Number1, Number2, Number3);
+
+    // 모두 다른 수일 때
+    if (Number1 > Number2 && Number1 > Number3) {
+      if (Number2 > Number3) {
+        console.log(Number1 ** Number3);
+      } else {
+        console.log(Number1 ** Number2);
+      }
+    }
+
+    if (Number2 > Number1 && Number2 > Number3) {
+      if (Number1 > Number3) {
+        console.log(Number2 ** Number3);
+      } else {
+        console.log(Number2 ** Number1);
+      }
+    }
+
+    if (Number3 > Number1 && Number3 > Number2) {
+      if (Number1 > Number2) {
+        console.log(Number3 ** Number2);
+      } else {
+        console.log(Number3 ** Number1);
+      }
+    }
+
+    // 세 수가 모두 같을 때
+    if (Number1 == Number2 && Number2 == Number3) {
+    console.log(Number1 ** Number2);
+    }
+
+    // 제일 큰 수가 동일 할 때
+    if (Number1 > Number3 && Number2 > Number3 && Number1 == Number2) {
+      console.log(Number1 ** Number3);
+    }
+    if (Number1 > Number2 && Number3 > Number2 && Number1 == Number3) {
+      console.log(Number1 ** Number2);
+    }
+
+    if (Number2 > Number1 && Number3 > Number1 && Number2 == Number3) {
+      console.log(Number2 ** Number1);
+    }
+
+
+
+
+
+
+
+
+  });
+</script>
+
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  number1 <input type="text" id="number1"><br>
+  number2 <input type="text" id="number2"><br>
+  <input type='button' value='계산' id="calculate">
+  <br>
+</body>
+
+<script>
+  $("#calculate").click(function() {
+
+
+    let numberOne = Number($("#number1").val());
+    let numberTwo = Number($("#number2").val());
+    let plus = numberOne + numberTwo;
+
+
+    let minus = Math.abs(numberOne - numberTwo)
+    // console.log(`빼기 = ${minus}`);
+
+    let multiply = numberOne * numberTwo;
+    // console.log(`곱하기 = ${multiply}`);
+    let division = 0;
+    if(numberOne > numberTwo){
+      division = numberOne / numberTwo;
+      // console.log(`나누기 = ${division}`);
+    } else if(numberTwo >= numberOne){
+      division = numberTwo / numberOne;
+      // console.log(`나누기 = ${division}`);
+    }
+console.log(`더하기 : ${plus}, 빼기 : ${minus}, 곱하기 : ${multiply}, 나누기 : ${division}`);
+
+  });
+
+
+
+
+  //브라우저 콘솔
+</script>
+
+
+</html>

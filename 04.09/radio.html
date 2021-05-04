@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  <br>
+  <input type="text" id="number"><br>
+  <input type="text" id="multiply"><br>
+
+  짝 : <input type="radio" name="number" value="" id="evenNumber" /><label for="radioEven"></label>
+  홀 : <input type="radio" name="number" value="" id="oddNumber" /><label for="radioOdd"></label> <br>
+
+  <input type='button' value='단 계산' id="result">
+
+  <span id="resultArea"></span>
+
+
+</body>
+<script>
+  ////// 수가 먼저 들어와야 하고, 체크박스 체크 여부와 단 계산 버튼 연결
+
+
+
+    $("#resultArea").html("");
+    for (let i = 1; i <= multiply; i++) {
+      let results = number * i;
+      $("#resultArea").append(`${number} * ${i} = ${results} <br>`)
+      console.log(results);
+
+    }
+  });
+
+  // 홀수
+
+  if (oddNumber = "checked") {
+
+    for (let i = 0; i <= multiply; i++) {
+      if (multiply % 2 == 0) {
+        continue;
+      } else {
+        let results = number * i;
+        $("#resultArea").append(`${number} * ${i} = ${results} <br>`)
+        console.log(results);
+      }
+    }
+  }
+
+  //짝수
+  for (let i = 0; i <= multiply; i++) {
+    if (multiply % 2 != 0) {
+      continue;
+    } else {
+      let results = number * i;
+      $("#resultArea").append(`${number} * ${i} = ${results} <br>`)
+      console.log(results);
+    }
+  }
+</script>
+
+</html>

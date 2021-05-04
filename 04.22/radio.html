@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  <br>
+  <input type="text" id="number1"><br>
+  <input type="text" id="multiply1"><br>
+
+  radio는 name으로 묶어서, 배열로 사용할 수 있다.
+  짝 : <input type="radio" name="number" value="" id="evenNumber" /><label for="radioEven"></label>
+  홀 : <input type="radio" name="number" value="" id="oddNumber" /><label for="radioOdd"></label> <br>
+
+  button의 id로 click(funcion() 실행
+  <input type='button' value='단 계산' id="result"> <br>
+
+  공간을 넣어주는 span. id로 구역을 지정해 원하는 데이터를 넣는다.
+  <span id="resultArea"></span>
+
+
+
+</body>
+<script>
+  $("#result").click(function() {
+    /// .html()안 내용으로 resultarea 바꿔주기.
+    $("#resultArea").html("");
+    // 숫자로 변환해서 받아오기.
+    let number = Number($("#number1").val());
+    let multiply = Number($("#multiply1").val());
+
+    if ($(`input[name="number"]`)[0].checked) {
+      // 홀
+      for (let i = 1; i <= multiply; i++) {
+        if (i % 2 == 0) {
+
+          let results = number * i;
+          $("#resultArea").append(`${number} * ${i} = ${results} <br>`)
+          console.log(results);
+        }
+      }
+    }
+
+    //짝수
+    if ($(`input[name="number"]`)[1].checked) {
+      for (let i = 1; i <= multiply; i++) {
+        if (i % 2 != 0) {
+          let results = number * i;
+          $("#resultArea").append(`${number} * ${i} = ${results} <br>`)
+          console.log(results);
+        }
+      }
+    }
+
+  });
+
+  // 홀수
+
+  // if ($(`input[name="number"]`)[0].checked) 배열로 묶어서 할 수 있다.
+</script>
+
+</html>

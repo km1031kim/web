@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+  <body>
+  학생정보 입력<br>
+
+  제목  : <input type="text" id="stdTitle">
+  내용  : <input type="text" id="stdContent">
+
+  <input type='button' value='버튼1' id="button1">
+<br>
+      <span id="resultArea"></span>
+ </body>
+      <script type = "text/javascript">
+          $("#button1").click(function() {
+            console.log($("#stdTitle").val(), $("#stdContent").val())
+            $.ajax({
+              type: "POST",
+              url: `/newtableContent`,
+              data: {
+
+                stdTitle : $("#stdTitle").val(),
+                stdContent: $("#stdContent").val(),
+
+
+                },
+              success: function(res) {
+                console.log(res);
+                if(res=='not ok') {
+                  alert("입력 실패");
+                }
+                else if(res=='ok') {
+                  alert("입력 성공")
+                }
+
+              }
+            });
+          });
+//브라우저 콘솔
+            </script>
+
+
+</html>

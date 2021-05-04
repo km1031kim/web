@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  <span id="resultArea"></span>
+  <div class="btnBox">
+    <button type="button" id="btn1">추가</button>
+  </div>
+  <input type="button" value="계산" id="calculate"><br>
+  <span id="numberArea"></span>
+
+
+
+</body>
+<script>
+  let arr = [];
+
+  $("#btn1").click(function() {
+    $("#resultArea").append('<input type="text" id="textbox" class = "numberlist"></input><br>');
+
+  });
+
+
+  $("#calculate").click(function() {
+
+
+    for (let i = 0; i < $('input[class="numberlist"]').length; i++) {
+      arr[i] = Number($('input[class="numberlist"]')[i].value);
+
+    }
+
+
+    let total = 0;
+    for (let i = 0; i < arr.length; i++) {
+      total += arr[i];
+
+    }
+    $("#numberArea").append(`결과 = ${total}`, '<input type="hidden" id="textbox"></input><br>');
+
+    //브라우저 콘솔
+
+  });
+</script>
+
+
+</html>
