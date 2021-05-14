@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  가격: <input type="text" id="price">
+  <input type='button' value='확인' id="verify">
+
+
+</body>
+
+<script>
+  $("#verify").click(function() {
+    //console.log($("#price").val());
+    $.ajax({
+      type: "POST",
+      url: `/priceCheck`,
+
+      data: {
+        price: $("#price").val(),
+      },
+      success: function(results) {
+        console.log(results);
+        alert(results)
+
+      }
+
+    });
+  });
+</script>
+
+</html>

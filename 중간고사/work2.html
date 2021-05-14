@@ -69,47 +69,67 @@
     }
     // console.log(Number1, Number2, Number3);
 
+    let max = Number1;
+    let min = Number1;
+
+    if(Number2 > max){
+      max = Number2;
+    }
+
+    if(Number3 > max){
+      max = Number3;
+    }
+
+    if(Number2 < min){
+      min = Number2;
+    }
+
+    if(Number3 < min){
+      min = Number3;
+    }
+
+    console.log(max**min);
     // 모두 다른 수일 때
-    if (Number1 > Number2 && Number1 > Number3) {
-      if (Number2 > Number3) {
-        console.log(Number1 ** Number3);
-      } else {
-        console.log(Number1 ** Number2);
-      }
-    }
-
-    if (Number2 > Number1 && Number2 > Number3) {
-      if (Number1 > Number3) {
-        console.log(Number2 ** Number3);
-      } else {
-        console.log(Number2 ** Number1);
-      }
-    }
-
-    if (Number3 > Number1 && Number3 > Number2) {
-      if (Number1 > Number2) {
-        console.log(Number3 ** Number2);
-      } else {
-        console.log(Number3 ** Number1);
-      }
-    }
-
-    // 세 수가 모두 같을 때
-    if (Number1 == Number2 && Number2 == Number3) {
-    console.log(Number1 ** Number2);
-    }
-
-    // 제일 큰 수가 동일 할 때
-    if (Number1 > Number3 && Number2 > Number3 && Number1 == Number2) {
-      console.log(Number1 ** Number3);
-    }
-    if (Number1 > Number2 && Number3 > Number2 && Number1 == Number3) {
-      console.log(Number1 ** Number2);
-    }
-
-    if (Number2 > Number1 && Number3 > Number1 && Number2 == Number3) {
-      console.log(Number2 ** Number1);
-    }
+    // if (Number1 > Number2 && Number1 > Number3) {
+    //   if (Number2 > Number3) {
+    //     console.log(Number1 ** Number3);
+    //   } else {
+    //     console.log(Number1 ** Number2);
+    //   }
+    // }
+    //
+    // if (Number2 > Number1 && Number2 > Number3) {
+    //   if (Number1 > Number3) {
+    //     console.log(Number2 ** Number3);
+    //   } else {
+    //     console.log(Number2 ** Number1);
+    //   }
+    // }
+    //
+    // if (Number3 > Number1 && Number3 > Number2) {
+    //   if (Number1 > Number2) {
+    //     console.log(Number3 ** Number2);
+    //   } else {
+    //     console.log(Number3 ** Number1);
+    //   }
+    // }
+    //
+    // // 세 수가 모두 같을 때
+    // if (Number1 == Number2 && Number2 == Number3) {
+    //   console.log(Number1 ** Number2);
+    // }
+    //
+    // // 제일 큰 수가 동일 할 때
+    // if (Number1 > Number3 && Number2 > Number3 && Number1 == Number2) {
+    //   console.log(Number1 ** Number3);
+    // }
+    // if (Number1 > Number2 && Number3 > Number2 && Number1 == Number3) {
+    //   console.log(Number1 ** Number2);
+    // }
+    //
+    // if (Number2 > Number1 && Number3 > Number1 && Number2 == Number3) {
+    //   console.log(Number2 ** Number1);
+    // }
 
 
 
