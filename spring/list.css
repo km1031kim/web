@@ -1,0 +1,24 @@
+.wrap{
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+
+table{
+  border-collapse: collapse; /* 칸들이 붙어서 나오게 함. 기본적으로 필요하다. */
+  width: 100%
+}
+
+th{
+  text-align: center;
+  background: #999;
+  color: #fff;
+  padding: 5px 10px;
+  border: 1px solid #f1f1f1;
+}
+
+td {
+  text-align: center;
+  padding: 5px 10px;
+  border: 1px solid #f1f1f1;
+}
