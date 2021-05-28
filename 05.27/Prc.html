@@ -12,7 +12,8 @@
   <input type='button' value='확인' id="itemBtn">
   <input type="button" value="입력페이지" id="goToInsertForm">
   <input type="button" value="목록보기" id="showList">
- </body>
+
+</body>
 
   <script>
     $("#itemBtn").click(function() {
@@ -35,8 +36,15 @@
     $("#goToInsertForm").click(function() {
       location.href = '/insertForm'
     });
+    $("#showList").click(function(){
 
-
+      location.href = "/List"
+      // success: function(results) {
+      //   console.log(results);
+      //
+      //
+      // }
+    });
   </script>
 
 </html>
