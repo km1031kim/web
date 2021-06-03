@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+
+  <div id="listArea">
+    <span id="resultArea"></span>
+    <input type="button" value="돌아가기" id="backToMain">
+
+  </div>
+
+</body>
+
+<script>
+  $.ajax({
+    type: "get",
+    url: `/ListPrint`,
+
+    data: {},
+    success: function(results) {
+      console.log(results);
+      for (let i = 0; i < results.length; i++) {
+        let string = ""
+        // string += results[i].NO + " / " + results[i].itemName + " / " + results[i].itemPrice + "<br>"
+        string +=
+          `<span id=no${results[i].NO}>${results[i].NO} / ${results[i].itemName} / ${results[i].itemPrice} <button type="button" onclick="clickfunction(${results[i].NO})">삭제</button><button type="button" onclick="update(${results[i].NO})">수정</button> <br></span>`
+        $("#resultArea").append(string);
+      }
+
+
+
+
+    }
+  });
+
+  function clickfunction(number) {
+
+
+    console.log(number);
+    $.ajax({
+      type: "DELETE",
+      url: `/delete`,
+      data: {
+        numbers: number
+      },
+      success: function(results) {
+        console.log(results);
+        $(`#no${results}`).remove()
+        alert("삭제성공")
+
+      }
+    });
+  }
+
+
+  function update(number) {
+   location.href = `/update?${number}`
+
+}
+
+
+
+  $("#gotoMain").click(function() {
+
+        location.href = "/prc"
+  });
+
+
+  </script>
+</html>

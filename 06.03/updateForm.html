@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+
+let sch = location.search
+var params = new URLSearchParams(sch);
+var sch_NO = params.get('NO');
+
+
+
+</script>
+
+<body>
+  <span id="resultArea"></span>
+
+  <input type='button' value='수정' id="update" >
+  <input type="button" value="돌아가기" id="backToMain">
+
+
+
+</body>
+
+<script>
+
+
+
+$.ajax({
+  type: "post",
+  url: `/selectData`,
+
+  data: {
+    selectNum : sch_NO,
+
+  },
+  success: function(results) {
+    console.log(results);
+
+
+      let string = ""
+      // string += results[i].NO + " / " + results[i].itemName + " / " + results[i].itemPrice + "<br>"
+      string +=
+        `<input type="text" id="item" value="${results[0].itemName}"</input><br> <input type="text" id="price" value="${results[0].itemPrice}"></input>`
+      $("#resultArea").append(string);
+
+    console.log(results);
+
+
+    // DELETE FROM `test`.`item` WHERE  `NO`=7;
+  }
+});
+
+
+
+  $("#update").click(function(){
+
+    $.ajax({
+      type: "post",
+      url: `/update_action`,
+
+      data: {
+        number : sch_NO,
+        itemName : $("#item").val(),
+        itemPrice : $("#price").val()
+    //      $("#item").val(res[0].itemName);    // 아이템의 id값이 ("#item").val <- 이거, 근데 그걸 배열의 0번째, [ [no: 39, itemPrice: 10000, itemName: "item3"] ]
+  //    $("#price").val(res[0].itemPrice);
+
+          },
+      success: function(results) {
+        console.log(results);
+        if(results.affectedRows==1){
+          alert("수정성공")
+          location.href="/Prc"
+        } else {
+          alert(results)
+        }
+
+
+
+      }
+    });
+  });
+
+
+  $("#backToMain").click(function() {
+
+      location.href = "/prc"
+    });
+
+
+
+
+
+</script>
+
+</html>

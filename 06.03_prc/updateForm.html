@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+
+// let sch = location.search
+// var params = new URLSearchParams(sch);
+// var sch_NO = params.get('NO');
+
+
+
+</script>
+
+<body>
+  <span id="resultArea"></span>
+  이름 : <input type="text" id = "itemName" value=""> <br>
+  가격 : <input type="text" id = "itemPrice" value=""> <br>
+  <input type='button' value='수정' id="update" >
+  <input type="button" value="돌아가기" id="backToMain">
+
+
+
+</body>
+
+<script>
+
+  let number = location.search.split("?")[1]
+  console.log(number);
+
+  $.ajax({
+    type: "post",
+    url: `/selectData`,
+
+    data: {
+      No : number
+    },
+    success: function(results) {
+      console.log(results);
+      // 결과값으로 밀어넣을 수 있구나.
+    $("#itemName").val(results[0].itemName);
+    $("#itemPrice").val(results[0].itemPrice);
+
+    }
+  });
+
+  $("#update").click(function() {
+    //console.log($("#price").val());
+    $.ajax({
+      type: "put",
+      url: `/update_action`,
+
+      data: {
+        No : number,
+        itemName : $("#itemName").val(),
+        itemPrice: $("#itemPrice").val()
+
+
+      },
+      success: function(results) {
+        console.log(results);
+        if(results.affectedRows==1){
+          alert("수정성공")
+          location.href="/Prc"
+        } else {
+          alert(results)
+        }
+
+
+
+      }
+    });
+  });
+
+
+  $("#backToMain").click(function() {
+
+      location.href = "/prc"
+    });
+
+
+
+
+
+
+
+</script>
+
+</html>

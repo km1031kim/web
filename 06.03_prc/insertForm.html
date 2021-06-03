@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <body>
+    이름 : <input type="text" id = "itemName" value=""> <br>
+    가격 : <input type="text" id = "itemPrice" value=""> <br>
+    <input type="button" value="입력" id="insertBtn">
+    <input type="button" value="홈으로" id="gotoMain">
+
+
+
+
+  </body>
+  <script>
+    $("#insertBtn").click(function() {
+      //console.log($("#price").val());
+      $.ajax({
+        type: "post",
+        url: `/priceCheck`,
+
+        data: {
+          itemName : $("#itemName").val(),
+          itemPrice: $("#itemPrice").val()
+
+
+        },
+        success: function(results) {
+          console.log(results);
+          alert(results)
+              location.href = "/prc"
+
+
+        }
+      });
+    });
+
+
+
+
+      $("#gotoMain").click(function() {
+
+        location.href = "/prc"
+      });
+
+      </script>
+
+
+</html>
