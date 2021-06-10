@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+학생 목록
+  <div id="listArea">
+    <span id="resultArea"></span>
+    <input type="button" value="메인페이지" id="backToMain">
+
+  </div>
+
+</body>
+
+<script>
+  $.ajax({
+    type: "get",
+    url: `/ListPrint`,
+
+    data: {},
+    success: function(results) {
+
+      for (let i = 0; i < results.length; i++) {
+        let string = ""
+          string +=
+          `<span id=no${results[i].no}>${results[i].no} / 학번 : ${results[i].studentNo}
+          / 이름 : ${results[i].studentName} / javascript : ${results[i].javascript}
+          / python : ${results[i].python}
+          / java : ${results[i].java}
+          <button type="button" onclick="update(${results[i].no})">수정</button>
+          <button type="button" onclick="deleteFunction(${results[i].no})">삭제</button> <br></span>`
+        $("#resultArea").append(string);
+      }
+      console.log(results);
+
+
+      // DELETE FROM `test`.`item` WHERE  `NO`=7;
+    }
+  });
+
+  function update(number) {
+   location.href = `/update?${number}`
+
+  }
+
+
+  function deleteFunction(number) {
+
+
+    console.log(number);
+    $.ajax({
+      type: "delete",
+      url: `/delete`,
+      data: {
+        no: number
+      },
+      success: function(results) {
+        console.log(results);
+        $(`#no${results}`).remove()
+        alert("삭제성공")
+      }
+    });
+  }
+
+
+  $("#backToMain").click(function() {
+    location.href = "/"
+  });
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  학생 입력 <br>
+  학번: <input type="text" id="stdNo"><br>
+  이름: <input type="text" id="stdName"> <br>
+  javascript: <input type="text" id="jsScore"><br>
+  python: <input type="text" id="pyScore"> <br>
+  java: <input type="text"   id="javaScore"><br>
+
+  <input type='button' value='입력' id="insertInfo">
+  <input type="button" value="메인페이지" id="backToMain">
+  <input type="button" value="목록페이지" id="goToList">
+
+
+
+</body>
+
+<script>
+  $("#insertInfo").click(function() {
+    //console.log($("#price").val());
+    $.ajax({
+      type: "post",
+      url: `/insertDB`,
+
+      data: {
+        stdNo: $("#stdNo").val(),
+        stdName: $("#stdName").val(),
+        jsScore: $("#jsScore").val(),
+        pyScore: $("#pyScore").val(),
+        javaScore: $("#javaScore").val(),
+        },
+      success: function(results) {
+        console.log(results);
+        if(results.affectedRows==1){
+          alert("입력되었습니다")
+          location.href="/List" // 이따 바꿔야한다.
+        } else {
+          alert(results)
+        }
+
+
+      }
+    });
+  });
+
+  $("#goToList").click(function(){
+
+    location.href = "/List"
+  });
+
+  $("#backToMain").click(function(){
+
+    location.href = "/"
+  });
+
+
+</script>
+
+</html>

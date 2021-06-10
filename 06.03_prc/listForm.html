@@ -8,9 +8,11 @@
 
 <body>
 
-  <div id="listArea">
+  <div id="listArea" value ="학생 목록">
+
     <span id="resultArea"></span>
-    <input type="button" value="돌아가기" id="backToMain">
+
+    <input type="button" value="메인페이지" id="backToMain">
 
   </div>
 
@@ -25,13 +27,17 @@
     success: function(results) {
       console.log(results);
       for (let i = 0; i < results.length; i++) {
+        if (i = 0){
+          let string = "학생 목록"
+        }
+        else {
         let string = ""
         // string += results[i].NO + " / " + results[i].itemName + " / " + results[i].itemPrice + "<br>"
         string +=
-          `<span id=no${results[i].NO}>${results[i].NO} / ${results[i].itemName} / ${results[i].itemPrice} <button type="button" onclick="clickfunction(${results[i].NO})">삭제</button><button type="button" onclick="update(${results[i].NO})">수정</button> <br></span>`
+          `학생 목록<br><span id=no${results[i].NO}>${results[i].NO} / ${results[i].itemName} / ${results[i].itemPrice} <button type="button" onclick="clickfunction(${results[i].NO})">삭제</button><button type="button" onclick="update(${results[i].NO})">수정</button> <br></span>`
         $("#resultArea").append(string);
       }
-
+    }
 
 
 

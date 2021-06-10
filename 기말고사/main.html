@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<body>
+  학생관리 프로그램<br>
+  <select name="selectBox" id="searchStd">
+
+    <input type='button' value='확인' id="select"> <br>
+    <span id="resultArea"></span>
+    <input type="button" value="입력페이지" id="goToInsertForm">
+    <input type="button" value="목록페이지" id="showList">
+
+</body>
+
+<script>
+  $("#searchStd").append("<option value='total'>전체수석</option>");
+  $("#searchStd").append("<option value='jsFirst'>javascript 최고득점</option>");
+  $("#searchStd").append("<option value='pyFirst'>python 최고득점</option>");
+  $("#searchStd").append("<option value='javaFirst'>java 최고득점</option>");
+
+
+  $("#select").click(function() {
+    $("#resultArea").html(" ");
+    $.ajax({
+      type: "post",
+      url: `/stdSearch`,
+
+      data: {
+        target: $("#searchStd option:selected").val(),
+      },
+      success: function(results) {
+
+        console.log(results);
+
+        for (let i = 0; i < results.length; i++) {
+          let string = ""
+          string +=
+            `${results[i].no} / 학번 : ${results[i].studentNo}
+            / 이름 : ${results[i].studentName} / javascript : ${results[i].javascript}
+            / python : ${results[i].python}
+            / java : ${results[i].java} <br>`
+          $("#resultArea").append(string);
+        }
+
+
+      }
+    });
+
+
+  });
+
+
+
+
+  $("#goToInsertForm").click(function() {
+    location.href = '/insertForm'
+  });
+  $("#showList").click(function() {
+
+    location.href = "/List"
+    // success: function(results) {
+    //   console.log(results);
+    //
+    //
+    // }
+  });
+</script>
+
+</html>

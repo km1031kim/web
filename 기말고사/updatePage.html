@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+</head>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script>
+
+
+</script>
+
+<body>
+  <span id="resultArea"></span>
+  <input type='button' value='수정' id="update" >
+  <input type="button" value="메인페이지" id="backToMain">
+  <input type='button' value='목록페이지' id="goToList" >
+
+
+
+
+</body>
+
+<script>
+  let number = location.search.split("?")[1]
+  console.log(number);
+
+  $.ajax({
+    type: "post",
+    url: `/selectData`,
+
+    data: {
+      No: number
+    },
+    success: function(results) {
+      console.log(results);
+
+      let string = ""
+      // string += results[i].NO + " / " + results[i].itemName + " / " + results[i].itemPrice + "<br>"
+      string +=
+        `학생 수정 <br>
+        학번 : ${results[0].studentNo} <br>
+        이름 : <input type="text" id="stdName" value="${results[0].studentName}"><br>
+        javascript : <input type="text" id="jsScore" value="${results[0].javascript}"><br>
+        python : <input type="text" id="pyScore" value="${results[0].python}"><br>
+        java : <input type="text" id="javaScore" value="${results[0].java}"><br>`
+
+      $("#resultArea").append(string);
+    }
+  });
+
+
+  $("#update").click(function() {
+    //console.log($("#price").val());
+    $.ajax({
+      type: "put",
+      url: `/update_action`,
+
+      data: {
+        no : number,
+        stdName: $("#stdName").val(),
+        jsScore: $("#jsScore").val(),
+        pyScore: $("#pyScore").val(),
+        javaScore: $("#javaScore").val(),
+
+
+      },
+      success: function(results) {
+        console.log(results);
+        if (results.affectedRows == 1) {
+          alert("수정성공")
+          location.href = "/"
+        } else {
+          alert(results)
+        location.href = `/List`
+        }
+      }
+    });
+  });
+
+
+
+  $("#goToList").click(function(){
+
+    location.href = "/List"
+  });
+
+  $("#backToMain").click(function(){
+
+    location.href = "/"
+  });
+
+</script>
+
+</html>
